@@ -22,7 +22,8 @@ function calculateBtnClicked(){
             billTotal += 0.75;
         }
     }
-//link the function to a click event on the calculate button
     var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = roundedBillTotal;
 }
+//link the function to a click event on the calculate button
+calculateBtn.addEventListener('click', calculateBtnClicked);
