@@ -21,14 +21,18 @@ function totalPhoneBill(billString){
   
 }
    function alertColorChange(roundedPhoneBill){
-if (parseFloat(roundedPhoneBill >= 20 && roundedPhoneBill < 30)) {
+if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
     phoneBill.className = "warning";
 }
-else if (parseFloat (roundedPhoneBill >= 30)) {
+else if (roundedPhoneBill >= 30) {
     phoneBill.className = "danger";
 }
    }
      
 function calculateBtnClicked(){
     var billString = bill.value;
-    const roundedPhoneBill = to
+    const roundedPhoneBill = totalPhoneBill(billString);
+    phoneBill.innerHTML = roundedPhoneBill;
+    alertColorChange(roundedPhoneBill);
+}
+calculateBtn.addEventListener('click', calculateBtnClicked);
