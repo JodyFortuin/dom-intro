@@ -1,22 +1,50 @@
-// get a reference to the sms or call radio buttons
+var billSettingsElem = document.querySelectorAll(".billItemTypeWithSettings");
 
-// get refences to all the settings fields
+const callTotalSet = document.querySelector(".callTotalSettings");
+const smsTotalSet = document.querySelector(".smsTotalSettings");
+const totalSet = document.querySelector(".totalSettings");
 
-//get a reference to the add button
+const callCostSet = document.querySelector(".callCostSetting");
+const smsCostSet = document.querySelector(".smsCostSetting");
 
-//get a reference to the 'Update settings' button
+const warningSet = document.querySelector(".warningLevelSetting");
+const criticalSet = document.querySelector(".criticalLevelSetting");
+const updateSet = document.querySelector(".updateSettings");
+const setAddBtn = document.querySelector(".addButton");
 
-// create a variables that will keep track of all the settings
+function update(){
+var setCallCost = document.querySelector('callCostSet');
+callCostSet.setAttribute('contenteditable', '34')
 
-// create a variables that will keep track of all three totals.
+var setSmsCost = document.querySelector('smsCostSet');
+smsCostSet.setAttribute('contenteditable', '7.35')
 
-//add an event listener for when the 'Update settings' button is pressed
+var setWarning = document.querySelector('warningSet');
+warningSet.setAttribute('contenteditable', '30.00')
 
-//add an event listener for when the add button is pressed
+var setCritical = document.querySelector('criticalSet');
+criticalSet.setAttribute('contenteditable', '65.00')
+}
 
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the call / sms total
-// * add the appropriate value to the overall total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen.
-// * check the value thresholds and display the total value in the right color.
+function setAddBtnClicked(){
+    
+    var checkedRadioBtnSet = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    var itemType = checkedRadioBtnSet
+    var warning = warningSet.value;
+    var danger = criticalSet.value;
+    const totalCostThree = callTotalSet + smsTotalSet;
+    callsTotalSet.innerHTML = callsTotalSet.toFixed(2);
+    smsTotalSet.innerHTML = smsTotalSet.toFixed(2);
+    totalSet.innerHTML = totalCostThree;
+    
+  
+    if (totalCostThree >= warning && totalCostThree < danger) {
+        totalSet.className = "warning";
+    }
+    else if (totalCostThree >= danger) {
+        totalSet.className = "danger";
+    }
+       }
+
+updateSet.addEventListener("click", update);
+setAddBtn.addEventListener("click", setAddBtnClicked);
