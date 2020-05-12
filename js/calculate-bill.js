@@ -23,6 +23,15 @@ function totalPhoneBill(billString){
   return billTotal.toFixed(2);
 }
 
+function alertColorChange(roundedPhoneBill){
+if (parseFloat(roundedPhoneBill >= 20 && roundedPhoneBill < 30)) {
+    phoneBill.className = "warning";
+}
+else if (parseFloat (roundedPhoneBill >= 30)) {
+    phoneBill.className = "danger";
+}
+   }
+
 function calculateBtnClicked(){
     var billString = bill.value;
     const roundedPhoneBill = totalPhoneBill(billString);
