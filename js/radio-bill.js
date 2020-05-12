@@ -1,12 +1,38 @@
-// get a reference to the sms or call radio buttons
+const billTypeRadio = document.querySelector(".billItemTypeRadio");
+const radioBillAddBtn = document.querySelector(".radioBillAddBtn");
+const callsTotalElemTwo = document.querySelector(".callTotalTwo");
+const smsTotalElemTwo = document.querySelector(".smsTotalTwo");
+const totalCostElemTwo = document.querySelector(".totalTwo");
 
-//get a reference to the add button
+   var callsT = 0;
+   var smsT = 0;
 
-//create a variable that will keep track of the total bill
+function radioBillTotal(billItemType){
+   
+    if (billItemType === "call"){
+        callsT += 2.75
+    }
+    else if (billItemType === "sms"){
+        smsT += 0.75
+    }
+    var totalCostTwo= callsT + smsT;
+  return totalCostTwo.toFixed(2);
+  }
 
-//add an event listener for when the add button is pressed
-
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen
+    
+  function radioBillAddBtnClicked(){
+    var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+    var billItemType = checkedRadioBtn.value;
+    const totalCostTwo = radioBillTotal(billItemType);
+    callsTotalElemTwo.innerHTML = callsT.toFixed(2);
+    smsTotalElemTwo.innerHTML = smsT.toFixed(2);
+    totalCostElemTwo.innerHTML = totalCostTwo;
+    
+    if (totalCostTwo >= 50) {
+    totalCostElemTwo.className = "danger";
+    }
+    else if (totalCostTwo >= 30) {
+    totalCostElemTwo.className = "warning";
+    }
+}
+radioBillAddBtn.addEventListener('click', radioBillAddBtnClicked);
