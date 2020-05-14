@@ -10,7 +10,7 @@ const smsCostSetElem = document.querySelector(".smsCostSetting");
 const warningSetElem = document.querySelector(".warningLevelSetting");
 const criticalSetElem = document.querySelector(".criticalLevelSetting");
 const updateSetElem = document.querySelector(".updateSettings");
-const setAddBtnElem = document.querySelector(".addButton");
+const setAddBtnElem = document.querySelector(".radioBillAddButton");
 
 var setCallCost = 0;
 var setSmsCost = 0
