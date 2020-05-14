@@ -10,7 +10,7 @@ const smsCostSetElem = document.querySelector(".smsCostSetting");
 const warningSetElem = document.querySelector(".warningLevelSetting");
 const criticalSetElem = document.querySelector(".criticalLevelSetting");
 const updateSetElem = document.querySelector(".updateSettings");
-const setAddBtnElem = document.querySelector(".calculateBtn");
+const setAddBtnElem = document.querySelector(".addButton");
 
 var setCallCost = 0;
 var setSmsCost = 0
