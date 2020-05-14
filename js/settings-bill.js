@@ -33,9 +33,10 @@ colorCode()
 function setAddBtnClicked(){
    
   var checkedRadioBtnSet = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+  var itemType = checkedRadioBtnSet.value;
   if (totalCostSettings < setCritical){
   if (checkedRadioBtnSet){
-  var itemType = checkedRadioBtnSet.value;
+ 
     
   if(itemType === "call"){  
     callCostTotal += setCallCost;
