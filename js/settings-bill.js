@@ -1,50 +1,72 @@
 var billSettingsElem = document.querySelectorAll(".billItemTypeWithSettings");
 
-const callTotalSet = document.querySelector(".callTotalSettings");
-const smsTotalSet = document.querySelector(".smsTotalSettings");
-const totalSet = document.querySelector(".totalSettings");
+const callTotalSetElem = document.querySelector(".callTotalSettings");
+const smsTotalSetElem = document.querySelector(".smsTotalSettings");
+const totalSetElem = document.querySelector(".totalSettings");
 
-const callCostSet = document.querySelector(".callCostSetting");
-const smsCostSet = document.querySelector(".smsCostSetting");
+const callCostSetElem = document.querySelector(".callCostSetting");
+const smsCostSetElem = document.querySelector(".smsCostSetting");
 
-const warningSet = document.querySelector(".warningLevelSetting");
-const criticalSet = document.querySelector(".criticalLevelSetting");
-const updateSet = document.querySelector(".updateSettings");
-const setAddBtn = document.querySelector(".addButton");
+const warningSetElem = document.querySelector(".warningLevelSetting");
+const criticalSetElem = document.querySelector(".criticalLevelSetting");
+const updateSetElem = document.querySelector(".updateSettings");
+const setAddBtnElem = document.querySelector(".addButton");
 
+var setCallCost = 0;
+var setSmsCost = 0
+var setWarning = 0
+var setCritical = 0
+
+var callCostTotal = 0;
+var smsCostTotal = 0;
+var totalCostSettings = 0;
+  
 function update(){
-var setCallCost = document.querySelector('callCostSet');
-callCostSet.setAttribute('contenteditable', '34')
-
-var setSmsCost = document.querySelector('smsCostSet');
-smsCostSet.setAttribute('contenteditable', '7.35')
-
-var setWarning = document.querySelector('warningSet');
-warningSet.setAttribute('contenteditable', '30.00')
-
-var setCritical = document.querySelector('criticalSet');
-criticalSet.setAttribute('contenteditable', '65.00')
+  
+ setCallCost = Number(callCostSetElem.value)
+ setSmsCost = Number(smsCostSetElem.value)
+ setWarning = Number(warningSetElem.value)
+ setCritical = Number(criticalSetElem.value)
+colorCode()
 }
 
 function setAddBtnClicked(){
+   
+  var checkedRadioBtnSet = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+  if (totalCostSettings < setCritical){
+  if (checkedRadioBtnSet){
+  var itemType = checkedRadioBtnSet.value;
     
-    var checkedRadioBtnSet = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-    var itemType = checkedRadioBtnSet
-    var warning = warningSet.value;
-    var danger = criticalSet.value;
-    const totalCostThree = callTotalSet + smsTotalSet;
-    callsTotalSet.innerHTML = callsTotalSet.toFixed(2);
-    smsTotalSet.innerHTML = smsTotalSet.toFixed(2);
-    totalSet.innerHTML = totalCostThree;
+  if(itemType === "call"){  
+    callCostTotal += setCallCost;
+  }
+    else if(itemType === "sms"){
+      smsCostTotal += setSmsCost;
+  }
+  }
+} 
+    callTotalSetElem.innerHTML = callCostTotal.toFixed(2);
+    smsTotalSetElem.innerHTML = smsCostTotal.toFixed(2);
+    totalCostSettings = callCostTotal + smsCostTotal;
+    colorCode()
     
-  
-    if (totalCostThree >= warning && totalCostThree < danger) {
-        totalSet.className = "warning";
-    }
-    else if (totalCostThree >= danger) {
-        totalSet.className = "danger";
-    }
-       }
+    totalSetElem.innerHTML = totalCostSettings.toFixed(2);
+}
 
-updateSet.addEventListener("click", update);
-setAddBtn.addEventListener("click", setAddBtnClicked);
+  function colorCode(){
+    totalSetElem.classList.remove("warning");
+    totalSetElem.classList.remove("danger");
+    
+    if (totalCostSettings >= setWarning && totalCostSettings < setCritical) {
+        totalSetElem.classList.remove("danger");
+        totalSetElem.classList.add("warning");
+    }
+    else if (totalCostSettings >= setCritical) {
+        totalSetElem.classList.remove("warning");
+        totalSetElem.classList.add("danger");
+    }
+       
+  }
+
+updateSetElem.addEventListener("click", update);
+setAddBtnElem.addEventListener("click", setAddBtnClicked);
