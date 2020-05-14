@@ -47,4 +47,4 @@ function setAddBtnClicked(){
        }
 
 updateSet.addEventListener("click", update);
-setAddBtn.addEventListener("click", setAddBtnClicked)
+setAddBtn.addEventListener("click", setAddBtnClicked);
