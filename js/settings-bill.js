@@ -13,9 +13,9 @@ const updateSetElem = document.querySelector(".updateSettings");
 const setAddBtnElem = document.querySelector(".addButton");
 
 var setCallCost = 0;
-var setSmsCost = 0
-var setWarning = 0
-var setCritical = 0
+var setSmsCost = 0;
+var setWarning = 0;
+var setCritical = 0;
 
 var callCostTotal = 0;
 var smsCostTotal = 0;
