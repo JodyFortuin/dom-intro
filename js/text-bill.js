@@ -22,7 +22,7 @@ function textBillTotal(billString){
   return totalCost.toFixed(2);
   }
 }
-   
+ 
   function addToBillBtnClicked(){
     var billString = billTypeTextE.value;
     const totalCost = textBillTotal(billString);
