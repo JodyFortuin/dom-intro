@@ -5,7 +5,7 @@ const phoneBill = document.querySelector(".billTotal");
 const bill = document.querySelector(".billString");
 
 function totalPhoneBill(billString){
-   var callLog = billString.split(', ')
+   var callLog = billString.split(',')
    var billTotal = 0;
   for(var i=0; i < callLog.length; i++){
 
