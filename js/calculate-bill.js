@@ -23,6 +23,9 @@ function calculateBtnClicked(){
     var billString = bill.value;
     const roundedPhoneBill = totalPhoneBill(billString);
     phoneBill.innerHTML = roundedPhoneBill;
+   
+    phoneBill.className.remove("warning");
+    phoneBill.className.remove("danger");
   
     if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
     phoneBill.className = "warning";
