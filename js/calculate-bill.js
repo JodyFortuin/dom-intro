@@ -24,16 +24,20 @@ function calculateBtnClicked(){
     const roundedPhoneBill = totalPhoneBill(billString);
     phoneBill.innerHTML = roundedPhoneBill;
    
-
+    phoneBill.classList.remove("warning");
+    phoneBill.classList.remove("danger");
+    
+    if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
+        phoneBill.classList.remove("danger");
+        phoneBill.classList.add("warning");
+    }
+    else if (roundedPhoneBill >= 30) {
+        phoneBill.classList.remove("warning");
+        phoneBill.classList.add("danger");
+    }
       
 
 
-    if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
-    phoneBill.className = "warning";
-}
-else if (roundedPhoneBill >= 30) {
-    phoneBill.className = "danger";
-}
 
 
   
