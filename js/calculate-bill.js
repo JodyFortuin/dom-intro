@@ -24,15 +24,18 @@ function calculateBtnClicked(){
     const roundedPhoneBill = totalPhoneBill(billString);
     phoneBill.innerHTML = roundedPhoneBill;
    
-   if (roundedPhoneBill < 20) {
-      phoneBill.className.remove("warning");
-    }
 
-   else if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
+      
+
+
+    if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
     phoneBill.className = "warning";
 }
 else if (roundedPhoneBill >= 30) {
     phoneBill.className = "danger";
 }
+   else if (roundedPhoneBill < 20){
+      phoneBill.className.remove("warning")
+      }
 }
 calculateBtn.addEventListener('click', calculateBtnClicked);
