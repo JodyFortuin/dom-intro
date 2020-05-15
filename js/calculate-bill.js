@@ -18,10 +18,16 @@ function totalPhoneBill(billString){
  } var roundedPhoneBill= billTotal.toFixed(2);
   return billTotal.toFixed(2);
 }
-function alertColour(){
    
-   
-   
+    
+
+
+}
+function calculateBtnClicked(){
+    var billString = bill.value;
+    const roundedPhoneBill = totalPhoneBill(billString);
+    phoneBill.innerHTML = roundedPhoneBill;
+    
     if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
         phoneBill.classList.remove("danger");
         phoneBill.classList.add("warning");
@@ -31,15 +37,6 @@ function alertColour(){
         phoneBill.classList.add("danger");
     }
       
-
-
-}
-function calculateBtnClicked(){
-    var billString = bill.value;
-    const roundedPhoneBill = totalPhoneBill(billString);
-    phoneBill.innerHTML = roundedPhoneBill;
-    
-    alertColour()
 
 
   
