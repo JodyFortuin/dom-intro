@@ -15,25 +15,24 @@ function totalPhoneBill(billString){
     } else if (callAction === 'sms'){
     billTotal += 0.75;
   } 
+    
  } var roundedPhoneBill= billTotal.toFixed(2);
   return billTotal.toFixed(2);
-}
   
+}
+   function alertColorChange(roundedPhoneBill){
+if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
+    phoneBill.className = "warning";
+}
+else if (roundedPhoneBill >= 30) {
+    phoneBill.className = "danger";
+}
+   }
+     
 function calculateBtnClicked(){
     var billString = bill.value;
     const roundedPhoneBill = totalPhoneBill(billString);
     phoneBill.innerHTML = roundedPhoneBill;
-    
-    phoneBill.classList.remove("warning");
-    phoneBill.classList.remove("danger");
-  
-    if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
-    phoneBill.classList.remove("danger");
-    phoneBill.classList.add("warning");
-}
-else if (roundedPhoneBill >= 30) {
-    phoneBill.classList.remove("warning");
-    phoneBill.classList.add("danger");
-}
+    alertColorChange(roundedPhoneBill);
 }
 calculateBtn.addEventListener('click', calculateBtnClicked);
