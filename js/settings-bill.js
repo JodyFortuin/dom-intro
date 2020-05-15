@@ -44,7 +44,7 @@ function setAddBtnClicked(){
       smsCostTotal += setSmsCost;
   }
   }
-} 
+}
     callTotalSetElem.innerHTML = callCostTotal.toFixed(2);
     smsTotalSetElem.innerHTML = smsCostTotal.toFixed(2);
     totalCostSettings = callCostTotal + smsCostTotal;
