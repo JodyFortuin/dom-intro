@@ -19,8 +19,7 @@ function totalPhoneBill(billString){
   return billTotal.toFixed(2);
 }
 function alertColour(){
-phoneBill.innerHTML = roundedPhoneBill;
-    
+
    phoneBill.classList.remove("danger");
    phoneBill.classList.remove("warning");
    
@@ -39,6 +38,8 @@ phoneBill.innerHTML = roundedPhoneBill;
 function calculateBtnClicked(){
     var billString = bill.value;
     const roundedPhoneBill = totalPhoneBill(billString);
+    phoneBill.innerHTML = roundedPhoneBill;
+    
     alertColour()
 
 
