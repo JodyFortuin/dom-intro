@@ -21,7 +21,9 @@ function totalPhoneBill(billString){
 function alertColour(){
 phoneBill.innerHTML = roundedPhoneBill;
     
- 
+   phoneBill.classList.remove("danger");
+   phoneBill.classList.remove("warning");
+   
     if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
         phoneBill.classList.remove("danger");
         phoneBill.classList.add("warning");
