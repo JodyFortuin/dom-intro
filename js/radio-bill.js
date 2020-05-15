@@ -19,7 +19,8 @@ function radioBillTotal(billItemType){
   return totalCostTwo.toFixed(2);
   }
 
-    
+
+
   function radioBillAddBtnClicked(){
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     var billItemType = checkedRadioBtn.value;
