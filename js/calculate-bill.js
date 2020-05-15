@@ -27,8 +27,8 @@ function calculateBtnClicked(){
     phoneBill.innerHTML = roundedPhoneBill;
     
    
-phoneBill.classList.remove("warning");
-    phoneBill.classList.remove("danger");
+
+
     
     if (roundedPhoneBill >= 20 && roundedPhoneBill < 30) {
         phoneBill.classList.remove("danger");
