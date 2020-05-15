@@ -34,8 +34,8 @@ function calculateBtnClicked(){
 else if (roundedPhoneBill >= 30) {
     phoneBill.className = "danger";
 }
-   else if (roundedPhoneBill < 20){
-      phoneBill.className.remove("warning")
-      }
+   else if (roundedPhoneBill 
+
+  
 }
 calculateBtn.addEventListener('click', calculateBtnClicked);
