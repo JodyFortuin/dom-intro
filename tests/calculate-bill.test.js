@@ -1,6 +1,6 @@
 describe("calculate-bill unit test", function() {
   
-    it("should return the cost for a string of calls and sms's", function() {
+    it("should return the total cost of added calls and sms's", function() {
         var calculatePhoneBill = CalculateBill();
         calculatePhoneBill.setCallCost(2.75)
         assert.equal(2.75, calculatePhoneBill.getCallCost())
@@ -15,11 +15,11 @@ describe("calculate-bill unit test", function() {
       assert.equal(0.75, calculatePhoneBill.totalSmsCost);
     });
 
-    it("should return the cost for a string of calls and sms's and alert warning", function() {
+    it("should return the total cost of added calls and sms's and alert warning", function() {
         var calculatePhoneBill = CalculateBill()
         calculatePhoneBill.setCallCost(2.75)
         assert.equal(2.75, calculatePhoneBill.getCallCost())
-        
+
          calculatePhoneBill.makeCall();
          calculatePhoneBill.makeCall();
          calculatePhoneBill.makeCall();
@@ -36,12 +36,12 @@ describe("calculate-bill unit test", function() {
       assert.equal('warning', calculatePhoneBill.alertColor);
     });
 
-    it("should return the cost for a string of calls and sms's and alert danger", function() {
+    it("should return the total cost of calls and sms's and alert danger", function() {
 
         var calculatePhoneBill = CalculateBill()
         calculatePhoneBill.setCallCost(2.75)
         assert.equal(2.75, calculatePhoneBill.getCallCost())
-        
+
          calculatePhoneBill.makeCall();
          calculatePhoneBill.makeCall();
          calculatePhoneBill.sendSms();
