@@ -1,8 +1,8 @@
 function CalculateBill(){
     var theCallCost = 0;
     var theSmsCost = 0;
-    var theWarnLevel = 20;
-    var theCritLevel = 30;
+    var theWarnLevel = 0;
+    var theCritLevel = 0;
 
     function setCallCost(callCost){
         theCallCost = callCost;
@@ -22,12 +22,18 @@ function CalculateBill(){
         return theCallCost + theSmsCost
     }
 
-    function getWarnLevel(warnLevel){
+    function setWarnLevel(warnLevel){
         theWarnLevel = warnLevel;
     }
+    function getWarnLevel(){
+        return theWarnLevel;
+    }
     
-    function getCritLevel(critLevel){
+    function setCritLevel(critLevel){
         theCritLevel = critLevel;
+    }
+    function getCritLevel(){
+        return theCritLevel;
     }
 
     Return 
@@ -36,3 +42,4 @@ function CalculateBill(){
         setSmsCost
         getSmsCost
 }
+
