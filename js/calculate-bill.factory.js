@@ -18,7 +18,7 @@ function CalculateBill(){
         return theSmsCost    
     }
 
-    function total(){
+    function getTotal(){
         return theCallCost + theSmsCost
     }
 
@@ -41,5 +41,10 @@ function CalculateBill(){
         getCallCost
         setSmsCost
         getSmsCost
+        getTotal
+        setWarnLevel
+        getWarnLevel
+        setCritLevel
+        getCritLevel
 }
 
