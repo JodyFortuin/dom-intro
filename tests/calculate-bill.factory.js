@@ -1,8 +1,8 @@
 function CalculateBill(){
     var theCallCost = 0;
     var theSmsCost = 0;
-    var theWarnLevel = 0;
-    var theCritLevel = 0;
+    var theWarnLevel = 20;
+    var theCritLevel = 30;
     var callCostTotal = 0;
     var smsCostTotal = 0;
 
@@ -24,16 +24,10 @@ function CalculateBill(){
         return theCallCost + theSmsCost
     }
 
-    function setWarnLevel(warnLevel){
-        theWarnLevel = warnLevel;
-    }
     function getWarnLevel(){
         return theWarnLevel;
     }
     
-    function setCritLevel(critLevel){
-        theCritLevel = critLevel;
-    }
     function getCritLevel(){
         return theCritLevel;
     }
@@ -59,7 +53,13 @@ function CalculateBill(){
     }
 
     function alertColor(){
-
+       
+        if (getTotalCost() >= getCritLevel()) {
+            return "critical";
+            }  
+        if (getTotalCost() >= getWarnLevel()) {
+            return "warning";
+            }        
     }
 
     return {
@@ -68,9 +68,7 @@ function CalculateBill(){
         setSmsCost,
         getSmsCost,
         getTotal,
-        setWarnLevel,
         getWarnLevel,
-        setCritLevel,
         getCritLevel,
         makeCall,
         getTotalCost,

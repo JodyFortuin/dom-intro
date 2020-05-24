@@ -2,16 +2,16 @@ describe("text-bill unit test", function() {
   
     it("should return the cost for a string of calls and sms's", function() {
         var calculateTextBill = textBill();
-        calculateTextBill.setCallCost(2.75)
-        calculateTextBill.setSmsCost(0.75)
+        calculateTextBill.setCallCost(2.75);
+        calculateTextBill.setSmsCost(0.75);
         
 
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.sendSms();
-         calculateTextBill.sendSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addSms();
+         calculateTextBill.addSms();
 
       assert.equal(8.50, calculateTextBill.getTotalCost());
       assert.equal(5.50, calculateTextBill.getTotalCallCost());
@@ -19,53 +19,63 @@ describe("text-bill unit test", function() {
     });
 
     it("should return the cost for a string of calls and sms's and alert warning", function() {
-        var calculateTextBill = textBill()
-        calculateTextBill.setCallCost(2.75)
-        calculateTextBill.setSmsCost(0.75)
+        var calculateTextBill = textBill();
+        calculateTextBill.setCallCost(2.75);
+        calculateTextBill.setSmsCost(0.75);
 
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
 
-      assert.equal(24.25, calculateTextBill.getTotalCost());
-      assert.equal(22.00, calculateTextBill.getTotalCallCost());
+      assert.equal(32.50, calculateTextBill.getTotalCost());
+      assert.equal(30.25, calculateTextBill.getTotalCallCost());
       assert.equal(2.25, calculateTextBill.getTotalSmsCost());
       assert.equal('warning', calculateTextBill.alertColor());
     });
 
-    it("should return the cost for a string of calls and sms's and alert danger", function() {
+    it("should return the cost for a string of calls and sms's and alert critical", function() {
 
-        var calculateTextBill = textBill()
-        calculateTextBill.setCallCost(2.75)
-        calculateTextBill.setSmsCost(0.75)
+        var calculateTextBill = textBill();
+        calculateTextBill.setCallCost(2.75);
+        calculateTextBill.setSmsCost(0.75);
 
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.sendSms();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
-         calculateTextBill.makeCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addSms();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
+         calculateTextBill.addCall();
 
-      assert.equal(33.25, calculateTextBill.getTotalCost());
-      assert.equal(30.25, calculateTextBill.getTotalCallCost());
+      assert.equal(52.50, calculateTextBill.getTotalCost());
+      assert.equal(49.50, calculateTextBill.getTotalCallCost());
       assert.equal(3.00, calculateTextBill.getTotalSmsCost());
-      assert.equal('danger', calculateTextBill.alertColor());
+      assert.equal('critical', calculateTextBill.alertColor());
     });
   });

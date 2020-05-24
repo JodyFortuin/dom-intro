@@ -1,8 +1,8 @@
-function billWithSettings(){
+function radioBill(){
     var theCallCost = 0;
     var theSmsCost = 0;
-    var theWarnLevel = 0;
-    var theCritLevel = 0;
+    var theWarnLevel = 30;
+    var theCritLevel = 50;
     var callCostTotal = 0;
     var smsCostTotal = 0;
 
@@ -24,24 +24,16 @@ function billWithSettings(){
         return theCallCost + theSmsCost
     }
 
-    function setWarnLevel(warnLevel){
-        theWarnLevel = warnLevel;
-    }
     function getWarnLevel(){
         return theWarnLevel;
     }
-    
-    function setCritLevel(critLevel){
-        theCritLevel = critLevel;
-    }
+ 
     function getCritLevel(){
         return theCritLevel;
     }
 
     function makeCall(){
-        if (criticalReached()) {
-        callCostTotal += theCallCost;
-        }
+        return callCostTotal += theCallCost;
     }
 
     function getTotalCost(){
@@ -57,23 +49,17 @@ function billWithSettings(){
     }
 
     function sendSms(){
-        if (criticalReached()) {
         smsCostTotal += theSmsCost;
-        }
-    }
-
-    function criticalReached(){
-        return getTotalCost() >= getCritLevel();
     }
 
     function alertColor(){
-        if (criticalReached()) {
+        if (getTotalCost() >= getCritLevel()) {
             return "critical";
-            }
+            } 
         if (getTotalCost() >= getWarnLevel()) {
             return "warning";
-            }       
-    }
+            }
+        }
 
     return {
         setCallCost,
@@ -81,16 +67,14 @@ function billWithSettings(){
         setSmsCost,
         getSmsCost,
         getTotal,
-        setWarnLevel,
         getWarnLevel,
-        setCritLevel,
         getCritLevel,
         makeCall,
         getTotalCost,
         getTotalCallCost,
         getTotalSmsCost,
         sendSms,
-        criticalReached,
         alertColor,
     }
 }
+
