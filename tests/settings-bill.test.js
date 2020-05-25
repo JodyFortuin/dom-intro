@@ -81,6 +81,7 @@ describe("Use values", function() {
 
     settingsBill.setCallCost(2.50);
     settingsBill.setSmsCost(0.00);
+    settingsBill.setCritLevel(10);
 
     settingsBill.makeCall();
     settingsBill.makeCall();
@@ -98,6 +99,7 @@ describe("Use values", function() {
     
         settingsBill.setCallCost(1.65);
         settingsBill.setSmsCost(0.00);
+        settingsBill.setCritLevel(10);
     
         settingsBill.makeCall();
         settingsBill.makeCall();
@@ -114,6 +116,7 @@ describe("Use values", function() {
         
         settingsBill.setCallCost(1.65);
         settingsBill.setSmsCost(0.65);
+        settingsBill.setCritLevel(10);
         
         settingsBill.sendSms();
         settingsBill.sendSms();
@@ -130,6 +133,7 @@ describe("Use values", function() {
         
         settingsBill.setCallCost(1.65);
         settingsBill.setSmsCost(0.65);
+        settingsBill.setCritLevel(10);
         
         settingsBill.sendSms();
         settingsBill.sendSms();
@@ -152,7 +156,7 @@ describe("The Warning and Critical level", function() {
         settingsBill.setCallCost(2.00);
         settingsBill.setSmsCost(1.65);
         settingsBill.setWarnLevel(5);
-        settingsBill.setCritLevel(44);
+        settingsBill.setCritLevel(20);
         
         settingsBill.sendSms();
         settingsBill.makeCall();
@@ -188,6 +192,7 @@ describe("The Warning and Critical level", function() {
         settingsBill.setCallCost(2.50);
         settingsBill.setSmsCost(0.85);
         settingsBill.setWarnLevel(12);
+        settingsBill.setCritLevel(12.5);
         
         settingsBill.makeCall();
         settingsBill.makeCall();
@@ -207,6 +212,7 @@ describe("The Warning and Critical level", function() {
         settingsBill.setCallCost(2.50);
         settingsBill.setSmsCost(0.85);
         settingsBill.setWarnLevel(16);
+        settingsBill.setCritLevel(17.50);
         
         settingsBill.makeCall();
         settingsBill.makeCall();
