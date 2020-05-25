@@ -39,7 +39,7 @@ function billWithSettings(){
     }
 
     function makeCall(){
-        if (criticalReached()) {
+        if (!criticalReached()) {
         callCostTotal += theCallCost;
         }
     }
@@ -57,7 +57,7 @@ function billWithSettings(){
     }
 
     function sendSms(){
-        if (criticalReached()) {
+        if (!criticalReached()) {
         smsCostTotal += theSmsCost;
         }
     }
