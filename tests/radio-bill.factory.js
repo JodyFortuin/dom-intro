@@ -77,4 +77,3 @@ function radioBill(){
         alertColor,
     }
 }
-
