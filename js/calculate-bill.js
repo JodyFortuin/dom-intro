@@ -4,28 +4,25 @@ const phoneBill = document.querySelector(".billTotal");
 
 const bill = document.querySelector(".billString");
 
-
-var calculateFact = CalculateBill();
-
 function totalPhoneBill(billString){
-  
    var callLog = billString.split(',')
+   var billTotal = 0;
   for(var i=0; i < callLog.length; i++){
 
    var callAction = callLog[i].trim();
     if (callAction === 'call'){
-       calculateFact.makeCall();
+       billTotal += 2.75;
     } else if (callAction === 'sms'){
-    calculateFact.sendSms();
+    billTotal += 0.75;
   } 
-  return calculateFact.getTotalCost().toFixed(2);
-}
+ } var roundedPhoneBill= billTotal.toFixed(2);
+  return billTotal.toFixed(2);
 }
   
 function calculateBtnClicked(){
     var billString = bill.value;
     const roundedPhoneBill = totalPhoneBill(billString);
-    phoneBill.innerHTML = calculateFact.getTotalCost().toFixed(2);
+    phoneBill.innerHTML = roundedPhoneBill;
     
     phoneBill.classList.remove("warning");
     phoneBill.classList.remove("danger");
