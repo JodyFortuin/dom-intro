@@ -1,11 +1,23 @@
 function radioBill(){
-    var theCallCost = 0;
-    var theSmsCost = 0;
+    var theCallCost = 2.75;
+    var theSmsCost = 0.75;
     var theWarnLevel = 30;
     var theCritLevel = 50;
     var callCostTotal = 0;
     var smsCostTotal = 0;
 
+    function radioBillTotal(billItemType){
+   
+        if (billItemType === "call"){
+            radioFact.makeCall();
+        }
+        else if (billItemType === "sms"){
+            radioFact.sendSms();
+        }
+        var totalCostTwo= radioFact.getTotalCallCost() + radioFact.getTotalSmsCost();
+      return totalCostTwo.toFixed(2);
+      }
+    
     function setCallCost(callCost){
         theCallCost = callCost;
     }
@@ -53,11 +65,11 @@ function radioBill(){
     }
 
     function alertColor(){
-        if (getTotalCost() >= getCritLevel()) {
-            return "critical";
-            } 
-        if (getTotalCost() >= getWarnLevel()) {
-            return "warning";
+        if (getTotalCost() >= 50) {
+            totalCostElemTwo.className = "danger";
+            }
+            else if (getTotalCost() >= 30) {
+            totalCostElemTwo.className = "warning";
             }
         }
 
@@ -75,5 +87,7 @@ function radioBill(){
         getTotalSmsCost,
         sendSms,
         alertColor,
+        radioBillTotal,
     }
 }
+
