@@ -7,18 +7,14 @@ function billWithSettings(){
     var smsCostTotal = 0;
 
     function settingsPhoneBill(itemType){
-        if (totalCostSettings < setCritical){
-      
-          if(itemType === "call"){  
-            callCostTotal += setCallCost;
-          }
-            else if(itemType === "sms"){
-              smsCostTotal += setSmsCost;
-          }
-          var  totalCostSettings = callCostTotal.toFixed(2) + smsCostTotal.toFixed(2);
-          return totalCostSettings;
+
+        if(itemType === "call"){  
+          settingsFact.makeCall();
         }
-      }
+          else if(itemType === "sms"){
+            settingsFact.sendSms();
+        } 
+      } 
 
     function setCallCost(callCost){
         theCallCost = callCost;
@@ -81,18 +77,13 @@ function billWithSettings(){
     }
 
     function alertColor(){
-        
-            totalSetElem.classList.remove("warning");
-            totalSetElem.classList.remove("danger");
-            
-            if (getTotalCost >= setWarnLevel() && getTotalCost < setCritLevel()) {
-                totalSetElem.classList.remove("danger");
-                totalSetElem.classList.add("warning");
-            }
-            else if (getTotalCost >= setCritLevel) {
-                totalSetElem.classList.remove("warning");
-                totalSetElem.classList.add("danger");
-            }       
+    
+    if (getTotalCost() >= theWarnLevel && getTotalCost() < theCritLevel) {
+        totalSetElem.className = "warning";
+    }
+    else if (getTotalCost() >= theCritLevel) {
+        totalSetElem.className = "danger";
+    }   
     }
 
     return {
