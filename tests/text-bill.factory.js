@@ -11,6 +11,7 @@ function textBill(){
         
        for(var i=0; i < billTypeEntered.length; i++){
          var callAction = billTypeEntered[i].trim();
+         if (getTotalCost() < theCritLevel){
          if (callAction === "call"){
              textFact.addCall();
          }
@@ -20,6 +21,7 @@ function textBill(){
          var totalCost= textFact.getTotalCallCost() + textFact.getTotalSmsCost();
        return totalCost.toFixed(2);
        }
+      }
      }
 
     function setCallCost(callCost){
@@ -93,4 +95,3 @@ function textBill(){
         textBillTotal,
     }
 }
-
