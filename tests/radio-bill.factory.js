@@ -7,7 +7,7 @@ function radioBill(){
     var smsCostTotal = 0;
 
     function radioBillTotal(billItemType){
-   
+        if (getTotalCost() < theCritLevel){
         if (billItemType === "call"){
             radioFact.makeCall();
         }
@@ -17,6 +17,7 @@ function radioBill(){
         var totalCostTwo= radioFact.getTotalCallCost() + radioFact.getTotalSmsCost();
       return totalCostTwo.toFixed(2);
       }
+    }
     
     function setCallCost(callCost){
         theCallCost = callCost;
