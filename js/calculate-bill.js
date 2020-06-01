@@ -10,6 +10,7 @@ function totalPhoneBill(billString){
   for(var i=0; i < callLog.length; i++){
 
    var callAction = callLog[i].trim();
+     if (getTotalCost() < theCritLevel){
     if (callAction === 'call'){
        billTotal += 2.75;
     } else if (callAction === 'sms'){
@@ -17,6 +18,7 @@ function totalPhoneBill(billString){
   } 
  } var roundedPhoneBill= billTotal.toFixed(2);
   return billTotal.toFixed(2);
+  }
 }
   
 function calculateBtnClicked(){
