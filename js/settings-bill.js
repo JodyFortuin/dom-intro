@@ -13,19 +13,8 @@ const criticalSetElem = document.querySelector(".criticalLevelSetting");
 const updateSetElem = document.querySelector(".updateSettings");
 const setAddBtnElem = document.querySelector(".addButton");
 
-var setCallCost = 0;
-var setSmsCost = 0;
-var setWarning = 0;
-var setCritical = 0;
-
-var callCostTotal = 0;
-var smsCostTotal = 0;
-var totalCostSettings = 0;
   
 function update(){
-  
- 
-   
  settingsFact.setCallCost(Number(callCostSetElem.value));
  settingsFact.setSmsCost(Number(smsCostSetElem.value));
  settingsFact.setWarnLevel(Number(warningSetElem.value));
