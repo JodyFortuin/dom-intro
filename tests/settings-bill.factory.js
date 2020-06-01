@@ -6,6 +6,20 @@ function billWithSettings(){
     var callCostTotal = 0;
     var smsCostTotal = 0;
 
+    function settingsPhoneBill(itemType){
+        if (totalCostSettings < setCritical){
+      
+          if(itemType === "call"){  
+            callCostTotal += setCallCost;
+          }
+            else if(itemType === "sms"){
+              smsCostTotal += setSmsCost;
+          }
+          var  totalCostSettings = callCostTotal.toFixed(2) + smsCostTotal.toFixed(2);
+          return totalCostSettings;
+        }
+      }
+
     function setCallCost(callCost){
         theCallCost = callCost;
     }
@@ -67,11 +81,17 @@ function billWithSettings(){
     }
 
     function alertColor(){
-        if (criticalReached()) {
-            return "critical";
+        
+            totalSetElem.classList.remove("warning");
+            totalSetElem.classList.remove("danger");
+            
+            if (getTotalCost >= setWarnLevel() && getTotalCost < setCritLevel()) {
+                totalSetElem.classList.remove("danger");
+                totalSetElem.classList.add("warning");
             }
-        if (getTotalCost() >= getWarnLevel()) {
-            return "warning";
+            else if (getTotalCost >= setCritLevel) {
+                totalSetElem.classList.remove("warning");
+                totalSetElem.classList.add("danger");
             }       
     }
 
@@ -92,5 +112,8 @@ function billWithSettings(){
         sendSms,
         criticalReached,
         alertColor,
+        settingsPhoneBill,
+
     }
 }
+
