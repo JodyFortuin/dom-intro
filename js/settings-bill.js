@@ -19,7 +19,7 @@ function update(){
  settingsFact.setSmsCost(Number(smsCostSetElem.value));
  settingsFact.setWarnLevel(Number(warningSetElem.value));
  settingsFact.setCritLevel(Number(criticalSetElem.value));
- 
+ settingsFact.alertColor();
 }
 
 
